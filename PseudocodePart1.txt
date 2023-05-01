@@ -1,0 +1,20 @@
+1. Define a Complex struct with real and imaginary parts as float.
+2. Declare function signatures:
+   - compute_c1(a1, a2, y0, y1, lambda1, lambda2)
+   - compute_c2(a1, a2, y0, y1, lambda1, lambda2)
+   - compute_theta(alpha, beta, y0, y1)
+   - find_roots(a1, a2, root1, root2)
+3. Implement compute_c1, compute_c2, and compute_theta functions with given formulas.
+4. Implement the main function:
+   a. Read a1, a2, y0, and y1 from user input.
+   b. Call find_roots to get root1 and root2.
+   c. Check the type of roots (real or complex) and handle them accordingly:
+      i.   Repeating real roots: Calculate C1 and C2 and print the solution.
+      ii.  Distinct real roots: Calculate C1 and C2 and print the solution.
+      iii. Complex conjugate roots: Calculate C, theta, and print the solution.
+5. Implement the find_roots function:
+   a. Calculate the discriminant.
+   b. Depending on the discriminant value, find the roots:
+      i.   Positive discriminant: Find two distinct real roots.
+      ii.  Zero discriminant: Find one real root (repeated).
+      iii. Negative discriminant: Find two complex conjugate roots.
