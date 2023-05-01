@@ -1,0 +1,15 @@
+Enter the coefficients (a1, a2) of the linear system: 1 1
+Enter the two initial conditions (y0, y1): 1 2
+y(t) = 1.00e^(-0.62t) + 1.00e^(1.62t)
+
+Enter the coefficients (a1, a2) of the linear system: 4 4
+Enter the two initial conditions (y0, y1): 1 1
+y(t) = (1.00 + 0.00t)e^(-2.00t)
+
+Enter the coefficients (a1, a2) of the linear system: 1.5 0.5
+Enter the two initial conditions (y0, y1): 1.2 0.8
+y(t) = 0.92e^(0.29t) + 0.28e^(1.21t)
+
+Enter the coefficients (a1, a2) of the linear system: 2.4 -0.4
+Enter the two initial conditions (y0, y1): 0.5 1.5
+y(t) = 0.31 e^(1.20 t)cos(0.98 t + 111.30)
