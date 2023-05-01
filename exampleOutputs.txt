@@ -13,3 +13,19 @@ y(t) = 0.92e^(0.29t) + 0.28e^(1.21t)
 Enter the coefficients (a1, a2) of the linear system: 2.4 -0.4
 Enter the two initial conditions (y0, y1): 0.5 1.5
 y(t) = 0.31 e^(1.20 t)cos(0.98 t + 111.30)
+
+ko dung <complex.h>
+
+Enter the coefficients (a1, a2) of the linear system: 1 1
+Enter the two initial conditions (y0, y1): 1 0
+y(t) = 1.00 e^(0.00 t)cos(1.00 t + 0.00)
+
+
+Enter the coefficients (a1, a2) of the linear system: 3.6 3.6
+Enter the two initial conditions (y0, y1): 1.2 0.4
+y(t) = (1.20 + -0.27t)e^(-1.80t)
+
+
+Enter the coefficients (a1, a2) of the linear system: 2.2 -1.8
+Enter the two initial conditions (y0, y1): 0.8 1.2
+y(t) = 0.33e^(1.00t) + 0.47e^(-0.80t)
