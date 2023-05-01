@@ -1,0 +1,16 @@
+1. Import required libraries (stdio, math, and stdlib) and the "roots.h" header file.
+2. Define a Complex struct with two float members: real and imag.
+3. Define functions to compute_c1, compute_c2, and compute_theta using given formulas.
+4. In the main function:
+   a. Open "Data.txt" for reading and check if the file was opened successfully.
+   b. Open "Result.txt" for writing and check if the file was created successfully.
+   c. Create variables a1, a2, y0, and y1.
+   d. Loop through the lines of "Data.txt" and read the values of a1, a2, y0, and y1.
+      i. Call the find_roots function to find the roots of the given values.
+      ii. Check if the roots are real or complex.
+         1. If the roots are real and equal, compute C1 and C2 for repeating real roots, and write the result to "Result.txt".
+         2. If the roots are real and distinct, compute C1 and C2 for distinct real roots, and write the result to "Result.txt".
+         3. If the roots are complex conjugates, compute C and theta for complex conjugate roots, and write the result to "Result.txt".
+   e. Close the input and output files.
+   f. Print a message indicating that the results have been saved to "Result.txt".
+5. End the main function.
