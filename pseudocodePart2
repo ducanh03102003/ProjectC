@@ -1,0 +1,26 @@
+
+1. Include necessary header files: stdio.h, math.h, stdlib.h, roots.h
+2. Define a struct called Complex, with two float fields: real and imag
+3. Define three functions:
+   a. compute_c1(a1, a2, y0, y1, lambda1, lambda2):
+      i. Compute and return the value of (y1 - (lambda2 * y0)) / (lambda1 - lambda2)
+   b. compute_c2(a1, a2, y0, y1, lambda1, lambda2):
+      i. Compute and return the value of ((lambda1 * y0) - y1) / (lambda1 - lambda2)
+   c. compute_theta(alpha, beta, y0, y1):
+      i. Compute and return the value of atan2(y1 - alpha * y0, y0) converted to degrees
+4. Define the main function:
+   a. Open a file called "Data.txt" for reading
+      i. If the file does not exist or could not be opened, print an error message and return 1
+   b. Open a file called "Result.txt" for writing
+      i. If the file could not be created, print an error message, close the input file, and return 1
+   c. Read four float values (a1, a2, y0, y1) from the input file until there are no more lines to read:
+      i. Declare two Complex variables, root1 and root2
+      ii. Call the function find_roots(a1, a2, &root1, &root2) to find the roots of the quadratic equation
+      iii. If both roots are real:
+           1. If the roots are the same, compute the values of C1 and C2 and print "2 C1 C2" to the output file
+           2. If the roots are different, compute the values of C1 and C2 and print "1 C1 C2" to the output file
+      iv. If the roots are complex conjugates:
+           1. Compute the values of C and theta and print "3 C theta" to the output file
+   d. Close the input and output files
+   e. Print a message saying "Results saved to Result.txt"
+   f. Return 0 to indicate successful completion of the program.
