@@ -1,0 +1,7 @@
+#include <math.h>
+#include <stdlib.h> // For malloc
+#include "roots.h"
+
+float *find_roots(float a1, float a2) {
+    float discriminant = a1 * a1 - 4 * a2;
+    float
