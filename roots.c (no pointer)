@@ -4,4 +4,22 @@
 
 float *find_roots(float a1, float a2) {
     float discriminant = a1 * a1 - 4 * a2;
-    float
+    float *roots = (float *) malloc(4 * sizeof(float));
+
+    if (discriminant > 0) {
+        roots[0] = (-a1 + sqrt(discriminant)) / 2;
+        roots[1] = 0;
+        roots[2] = (-a1 - sqrt(discriminant)) / 2;
+        roots[3] = 0;
+    } else if (discriminant == 0) {
+        roots[0] = roots[2] = -a1 / 2;
+        roots[1] = roots[3] = 0;
+    } else {
+        roots[0] = roots[2] = -a1 / 2;
+        float imag = sqrt(-discriminant) / 2;
+        roots[1] = imag;
+        roots[3] = -imag;
+    }
+
+    return roots;
+}
