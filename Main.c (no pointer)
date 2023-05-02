@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <math.h>
+#include "roots.h"
+
+float compute_c1(float a1, float a2, float y0, float y1, float lambda1_real, float lambda2_real) {
+    return (y1 - (lambda2_real * y0)) / (lambda1_real - lambda2_real);
+}
+
+float compute_c2(float a1, float a2, float y0, float y1, float lambda1_real, float lambda2_real) {
+    return ((lambda1_real * y0) - y1) / (lambda1_real - lambda2_real);
+}
+
+float compute_theta(float alpha, float beta, float y0, float y1) {
+    return atan2(y1 - alpha * y0, y0);
+}
+
+int main() {
+    float a1, a2, y0, y1;
+    printf("Enter the coefficients (a1, a2) of the linear system: ");
+    scanf("%f %f", &a1, &a2);
+    printf("Enter the two initial conditions (y0, y1): ");
+    scanf("%f %f", &y0, &y1);
+
+    float *roots;
+    roots = find_roots(a1, a2);
+
+    float root1_real = roots[0], root1_imag = roots[1], root2_real = roots[2], root2_imag = roots[3];
+
+    if (root1_imag == 0 && root2_imag == 0) {
+        if (root1_real == root2_real) { // Repeating real roots
+            float C1, C2;
+            C1 = y0;
+            C2 = y1 - root1_real * y0;
+            printf("y(t) = (%.2f + %.2ft)e^(%.2ft)\n", C1, C2, root1_real);
+        } else { // Distinct real roots
+            float C1, C2;
+            C1 = compute_c1(a1, a2, y0, y1, root1_real, root2_real);
+            C2 = compute_c2(a1, a2, y0, y1, root1_real, root2_real);
+            printf("y(t) = %.2fe^(%.2ft) + %.2fe^(%.2ft)\n", C1, root1_real, C2, root2_real);
+        }
+    } else { // Complex conjugate roots
+        float alpha = root1_real;
+        float beta = root1_imag;
+        float C = sqrt(y0 * y0 + (y1 - alpha * y0) * (y1 - alpha * y0)) / beta;
+        float theta = compute_theta(alpha, beta, y0, y1) * 180 / M_PI;
+        printf("y(t) = %.2f e^(%0.2f t)cos(%.2f t + %.2f)\n", C, alpha, beta, theta);
+    }
+
+    free(roots); // Free the memory allocated for roots
+    return 0;
+}
